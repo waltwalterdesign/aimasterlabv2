@@ -1,0 +1,4024 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INTELLI.AI — Mākslīgā Intelekta Integrācija Biznesam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+      /* DESIGN SYSTEM TOKENS */
+      :root {
+        /* Colors - Design Tokens */
+        --primary-0: #FFFFFF;
+        --primary-1: #E8DEF0;
+        --primary-2: #D1BFE1;
+        --primary-3: #B990FA;
+        --primary-4: #A270EF;
+        --primary-5: #8B50F3;
+        --primary-6: #6F4AC5;
+        --primary-7: #533794;
+        --primary-8: #3B2562;
+        --primary-9: #1C1231;
+        --primary-10: #000000;
+
+        --secondary-0: #FFFFFF;
+        --secondary-1: #FCE2D0;
+        --secondary-2: #F9C4A1;
+        --secondary-3: #F5A773;
+        --secondary-4: #F28944;
+        --secondary-5: #EF6C15;
+        --secondary-6: #BF5611;
+        --secondary-7: #8F410D;
+        --secondary-8: #602B08;
+        --secondary-9: #301604;
+        --secondary-10: #000000;
+
+        --accent-0: #FFFFFF;
+        --accent-1: #FCEED0;
+        --accent-2: #F9DDA1;
+        --accent-3: #F5CC73;
+        --accent-4: #F2BB44;
+        --accent-5: #EFAA15;
+        --accent-6: #BF8811;
+        --accent-7: #8F660D;
+        --accent-8: #604408;
+        --accent-9: #302204;
+        --accent-10: #000000;
+
+        --neutral-0: #FFFFFF;
+        --neutral-1: #E1E3E6;
+        --neutral-2: #C4C7CC;
+        --neutral-3: #A6AAB3;
+        --neutral-4: #8B9199;
+        --neutral-5: #94A3B8;
+        --neutral-6: #E2E8F0;
+        --neutral-7: #F1F5F9;
+        --neutral-8: #F8FAFC;
+        --neutral-9: #15171A;
+        --neutral-10: #000000;
+
+        --accent-500: var(--accent-5);
+        
+        /* Dark Theme Configuration (WCAG AA Compliant) */
+        --bg-main: #0C081A;          /* Premium rich dark obsidian - WCAG AAA */
+        --bg-section_alt: #130D26;   /* Dark violet slate */
+        --border: rgba(255, 255, 255, 0.08);
+        
+        --primary-500: #F1F5F9;      /* Clear white-silver - Contrast ratio 18:1 */
+        --primary-400: #E2E8F0;      /* Secondary light silver - Contrast ratio 15:1 */
+        --primary-300: #94A3B8;      /* Tertiary slate - Contrast ratio 6.8:1 */
+        
+        --neutral-000: #1C1530;      /* Dark fields */
+        --neutral-100: #130D26;
+        --neutral-200: #2F2254;
+        --neutral-300: #47367B;
+
+        /* Typography Scale */
+        --font-family: 'Albert Sans', sans-serif;
+        --font-headings: 'Crimson Pro', serif;
+        
+        /* Spacing */
+        --spacing-xs: 4px;
+        --spacing-sm: 8px;
+        --spacing-md: 16px;
+        --spacing-lg: 24px;
+        --spacing-xl: 40px;
+        --spacing-xxl: 64px;
+        --spacing-section: 96px;
+        
+        /* Radius */
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        
+        /* Shadows */
+        --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.05);
+        --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+        
+        /* Layout */
+        --container-width: 1200px;
+      }
+
+      /* High-quality theme transitions (smoothens toggles) */
+      html, body, header, section, footer, p, h1, h2, h3, h4, li, a, img, svg {
+        transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                    color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                    fill 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* RESET & BASE STYLES */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+        background-color: var(--bg-main);
+        color: var(--primary-500);
+        font-family: var(--font-family);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* TYPOGRAPHY SYSTEM */
+      h1, h2, h3, h4 {
+        font-family: var(--font-headings);
+        color: var(--primary-500);
+      }
+
+      h1 {
+        font-size: 48px;
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: 36px;
+        line-height: 1.25;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      h3 {
+        font-size: 28px;
+        line-height: 1.3;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+      }
+
+      h4 {
+        font-size: 22px;
+        line-height: 1.4;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 400;
+        letter-spacing: 0;
+        color: var(--neutral-6);
+      }
+
+      .p-large {
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+        letter-spacing: 0;
+        color: var(--neutral-6);
+      }
+
+      .body-small {
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        color: var(--neutral-6);
+      }
+
+      .caption {
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        color: var(--neutral-6);
+      }
+
+      /* STRUCTURE & GRID SYSTEM */
+      .container {
+        width: 100%;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+      }
+
+      section {
+        padding-top: var(--spacing-section);
+        padding-bottom: var(--spacing-section);
+      }
+
+      .section-alt {
+        background-color: var(--bg-section_alt);
+      }
+
+      /* Reusable ambient glow background from top-center using primary scale */
+      .section-glow {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .section-glow::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse 50% 25% at 50% 0%, var(--primary-6) 0%, var(--primary-8) 60%, transparent 100%);
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.35;
+        filter: blur(100px);
+      }
+
+      .section-glow > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* REVEAL ON SCROLL EFFECT */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* BUTTONS */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-family);
+        font-size: 15px;
+        font-weight: 600;
+        padding: 12px 28px;
+        border-radius: 9999px !important;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        text-decoration: none;
+        outline: none;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-5);
+        color: var(--neutral-0);
+        border: 1px solid var(--primary-5);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-6);
+        border-color: var(--primary-6);
+        color: var(--neutral-0);
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-1px);
+      }
+
+      .btn-primary:active {
+        background-color: var(--primary-7);
+        border-color: var(--primary-7);
+      }
+
+      .btn-secondary {
+        background-color: var(--secondary-5);
+        color: var(--neutral-0);
+        border: 1px solid var(--secondary-5);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--secondary-6);
+        border-color: var(--secondary-6);
+        color: var(--neutral-0);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .btn-secondary:active {
+        background-color: var(--secondary-7);
+        border-color: var(--secondary-7);
+      }
+
+      .btn-accent {
+        background-color: var(--accent-5);
+        color: var(--neutral-0);
+        border: 1px solid var(--accent-5);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .btn-accent:hover {
+        background-color: var(--accent-6);
+        border-color: var(--accent-6);
+        color: var(--neutral-0);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .btn-accent:active {
+        background-color: var(--accent-7);
+        border-color: var(--accent-7);
+      }
+
+      .btn-text {
+        background: transparent;
+        color: var(--primary-5);
+        border: none;
+        padding: 0;
+        font-weight: 600;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .btn-text:hover {
+        transform: translateX(4px);
+        color: var(--primary-6);
+      }
+
+      /* HEADER & NAVIGATION */
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        background-color: var(--header-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 0.5px solid var(--border);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 max(var(--spacing-lg), calc((100% - var(--container-width)) / 2 + var(--spacing-lg)));
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      html {
+        --header-bg: rgba(12, 8, 26, 0.85);
+        --header-bg-scrolled: rgba(12, 8, 26, 0.96);
+      }
+
+      header.scrolled {
+        background-color: var(--header-bg-scrolled);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      }
+
+      header .logo {
+        font-weight: 700;
+        font-size: 17px;
+        letter-spacing: -0.01em;
+        color: var(--primary-500) !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      header .logo span {
+        color: var(--primary-5) !important;
+      }
+
+      header nav {
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+      }
+
+      header .nav-item {
+        position: relative;
+      }
+
+      header .nav-link {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--primary-300) !important;
+        text-decoration: none;
+        padding: 0 0.55rem;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: color 0.2s;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+
+      header .nav-link:hover {
+        color: var(--primary-5) !important;
+      }
+
+      header .nav-link svg {
+        width: 8px;
+        height: 8px;
+        opacity: 0.5;
+        flex-shrink: 0;
+        transition: transform 0.2s, opacity 0.2s;
+      }
+
+      header .nav-item:hover .nav-link svg {
+        transform: rotate(180deg);
+        opacity: 1;
+      }
+
+      header .dropdown {
+        position: absolute;
+        top: calc(100% + 2px);
+        left: 0;
+        background-color: var(--neutral-000) !important;
+        border: 0.5px solid var(--border) !important;
+        border-radius: 8px;
+        padding: 0.5rem 0;
+        min-width: 220px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(6px);
+        transition: opacity 0.18s, transform 0.18s;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header .nav-item:hover .dropdown {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      header .dropdown a {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--primary-300) !important;
+        text-decoration: none;
+        padding: 9px 18px;
+        transition: background 0.15s, color 0.15s;
+        text-align: left;
+      }
+
+      header .dropdown a:hover {
+        background-color: rgba(139, 80, 243, 0.06);
+        color: var(--primary-5) !important;
+      }
+
+      header .dropdown-divider {
+        height: 0.5px;
+        background-color: var(--border);
+        margin: 4px 0;
+      }
+
+      .header-right-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+      }
+
+      header .btn-nav {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--neutral-0) !important;
+        background-color: var(--primary-5) !important;
+        border: none !important;
+        padding: 8px 18px !important;
+        border-radius: 9999px !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        margin-left: 0.75rem;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 4px 15px rgba(139, 80, 243, 0.25) !important;
+      }
+
+      header .btn-nav:hover {
+        transform: translateY(-1.5px) !important;
+        background-color: var(--primary-6) !important;
+        box-shadow: 0 6px 20px rgba(139, 80, 243, 0.35) !important;
+      }
+
+      header .btn-nav:active {
+        transform: translateY(0) !important;
+      }
+
+
+
+      /* Mobile Menu Trigger Button */
+      .menu-btn {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1100;
+        padding: 4px;
+      }
+
+      .menu-btn span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: var(--primary-500);
+        margin: 5px 0;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Background Backdrop for Mobile Menu */
+      .mobile-menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 1040;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-menu-backdrop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* Sliding Mobile Menu Container (Drawer) */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        max-width: 380px; /* premium width */
+        height: 100vh;
+        background-color: #0c081a; /* deep space background matching the site */
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 0;
+        overflow-y: auto;
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      /* Top bar inside mobile drawer with centered logo and right close button */
+      .mobile-menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* To center the logo container */
+        position: relative;
+        padding: var(--spacing-lg) var(--spacing-md);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .mobile-menu-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+      }
+
+      .mobile-menu-logo img {
+        height: 28px;
+        width: auto;
+        display: block;
+      }
+
+      .mobile-menu-close {
+        position: absolute;
+        right: var(--spacing-md);
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        color: var(--primary-500);
+        cursor: pointer;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .mobile-menu-close:hover {
+        color: #8ee84c; /* lime brand color */
+        transform: translateY(-50%) rotate(90deg);
+      }
+
+      /* Mobile Menu Content Scroll Area */
+      .mobile-menu-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: var(--spacing-lg) var(--spacing-md);
+      }
+
+      .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      /* Nav Items & Collapsibles */
+      .mobile-nav-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .mobile-nav-item:last-child {
+        border-bottom: none;
+      }
+
+      /* Standalone Link / Nav Link Item */
+      .mobile-nav-link-item {
+        display: block;
+        padding: 14px 8px;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-500);
+        text-decoration: none;
+        transition: color 0.2s ease, padding-left 0.2s ease;
+      }
+
+      .mobile-nav-link-item:hover {
+        color: #8ee84c;
+        padding-left: 12px;
+      }
+
+      /* Custom mobile link matching selector */
+      .mobile-nav .mobile-nav-link {
+        display: block;
+        padding: 14px 8px;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-500);
+        text-decoration: none;
+        transition: color 0.2s ease, padding-left 0.2s ease;
+        background: none;
+        border: none;
+        text-align: left;
+        width: 100%;
+      }
+
+      .mobile-nav .mobile-nav-link:hover {
+        color: #8ee84c;
+        padding-left: 12px;
+      }
+
+      /* Collapsible Button Trigger */
+      .mobile-nav-collapse-trigger {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 8px;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-500);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        transition: color 0.2s ease;
+      }
+
+      .mobile-nav-collapse-trigger:hover {
+        color: #8ee84c;
+      }
+
+      .mobile-nav-collapse-trigger .chevron-icon {
+        width: 12px;
+        height: 8px;
+        transition: transform 0.3s ease;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .mobile-nav-item.active .mobile-nav-collapse-trigger {
+        color: #8ee84c;
+      }
+
+      .mobile-nav-item.active .chevron-icon {
+        transform: rotate(180deg);
+        color: #8ee84c;
+      }
+
+      /* Collapsible Content Area */
+      .mobile-nav-collapse-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-left: 16px;
+      }
+
+      .mobile-nav-item.active .mobile-nav-collapse-content {
+        max-height: 500px; /* sufficiently large height */
+        padding-bottom: 12px;
+      }
+
+      /* Sub Links */
+      .mobile-sub-link {
+        display: block;
+        padding: 10px 8px !important;
+        font-size: 14px !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        text-decoration: none;
+        transition: color 0.2s ease, padding-left 0.2s ease;
+      }
+
+      .mobile-sub-link:hover {
+        color: #8ee84c !important;
+        padding-left: 14px !important;
+      }
+
+      .mobile-sub-divider {
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.08);
+        margin: 6px 8px;
+      }
+
+      /* Footer of Mobile Menu Drawer */
+      .mobile-menu-footer {
+        margin-top: 40px;
+        padding: 0 8px;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding-top: calc(var(--spacing-section) + 20px);
+        padding-bottom: var(--spacing-section);
+        display: flex;
+        align-items: center;
+        min-height: calc(100vh - 72px);
+      }
+
+      /* Reusable premium ambient glow background from top-left using primary scale only */
+      .section-glow-left {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .section-glow-left::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle 75vw at 0% 0%,
+          var(--primary-4) 0%,
+          var(--primary-6) 35%,
+          var(--primary-8) 65%,
+          transparent 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.28;
+        filter: blur(75px);
+        transform: translate3d(0, 0, 0);
+      }
+
+      .section-glow-left > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: var(--spacing-xxl);
+        align-items: center;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-content {
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+      }
+
+      .hero-content h1 {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .hero-content p {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: var(--spacing-md);
+      }
+
+      .hero-visual {
+        position: relative;
+        width: 100%;
+        height: 480px;
+        background-color: var(--neutral-100);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--neutral-200);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* HERO VISUAL CARD (Matching .service-card styling with glowing border & dark theme, but clean and transparent as requested) */
+      .hero-visual-card {
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative;
+        overflow: visible;
+        height: 495px; /* Hero image 25% smaller (660 * 0.75) */
+        width: 100%;
+      }
+
+      /* Watermark logo centered inside without off-center offsets or hover effects */
+      .hero-logo-watermark {
+        position: relative;
+        width: 472px; /* Hero image 25% smaller (630 * 0.75) */
+        height: 472px;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0 auto;
+        pointer-events: none;
+        user-select: none;
+        z-index: 10; /* Set z-index to 10 as requested */
+        opacity: 1;
+      }
+
+      /* Thin 0.1px logo outlines, styled with a elegant light gray color */
+      .logo-path {
+        stroke-width: 0.1px;
+        fill: none;
+        transition: stroke 0.3s;
+      }
+      .logo-path[data-color="purple"],
+      .logo-path[data-color="lime"] {
+        stroke: rgba(210, 214, 220, 0.4); /* Elegant light gray for both purple and lime paths */
+      }
+
+      #canvas-ai-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .visual-overlay {
+        position: absolute;
+        bottom: var(--spacing-lg);
+        left: var(--spacing-lg);
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        padding: var(--spacing-md) var(--spacing-lg);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--neutral-200);
+        box-shadow: var(--shadow-card);
+        pointer-events: none;
+        max-width: calc(100% - var(--spacing-lg) * 2);
+      }
+
+      .visual-overlay h4 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .visual-overlay p {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      /* TRUST LOGOS STRIP */
+      .trust-strip {
+        padding-top: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .trust-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+        width: 100%;
+      }
+
+      .trust-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        color: var(--primary-300);
+        margin-bottom: var(--spacing-xs);
+        text-align: center;
+      }
+
+      /* Infinite Moving Carousel Track styling */
+      .trust-carousel-viewport {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+      }
+
+      .trust-carousel-track {
+        display: flex;
+        width: max-content;
+        gap: 4.5rem;
+        animation: trustMarqueeScroll 28s linear infinite;
+        align-items: center;
+      }
+
+      @keyframes trustMarqueeScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .trust-logo {
+        display: flex;
+        align-items: center;
+        color: var(--primary-300);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        opacity: 0.6;
+        transition: color 0.2s, opacity 0.2s;
+        flex-shrink: 0;
+      }
+
+      .trust-logo:hover {
+        color: var(--primary-500);
+        opacity: 0.95;
+      }
+
+      .trust-logo svg {
+        margin-right: 8px;
+        height: 20px;
+        width: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* SERVICES SECTION ("Kā mēs strādājam") */
+      .section-header {
+        margin-bottom: var(--spacing-xxl);
+        max-width: 600px;
+      }
+
+      .section-header.header-right {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        text-align: right !important;
+      }
+
+      .section-header .tag {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--primary-300);
+        margin-bottom: var(--spacing-sm);
+        display: block;
+      }
+
+      .section-header h2 {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+      }
+
+      .service-card {
+        border: 3px solid transparent !important;
+        background: linear-gradient(135deg, #1C1231 0%, #3B2562 100%) padding-box,
+                    linear-gradient(135deg, #3B2562 0%, #1C1231 100%) border-box !important;
+        border-radius: 20px !important;
+        padding: var(--spacing-xl) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 100% !important;
+        min-height: 380px !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 40px rgba(139, 80, 243, 0.25) !important;
+        border-color: var(--card-accent, var(--primary-4)) !important;
+      }
+
+      /* Ambient Glow in Cards */
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        right: -10%;
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(circle, rgba(139, 80, 243, 0.15) 0%, rgba(139, 80, 243, 0) 70%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Custom Watermarks matching image */
+      .service-card .card-watermark {
+        position: absolute;
+        bottom: -100px;
+        font-size: 500px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.035) !important;
+        line-height: 0.8;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+        font-family: 'Albert Sans', sans-serif;
+      }
+
+      .services-grid .service-card:nth-child(1) .card-watermark {
+        right: -60px;
+      }
+
+      .services-grid .service-card:nth-child(2) .card-watermark {
+        right: -130px;
+      }
+
+      .services-grid .service-card:nth-child(3) .card-watermark {
+        right: -135px;
+      }
+
+      .service-number {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--card-accent, var(--primary-5)) !important;
+        margin-bottom: var(--spacing-md);
+        display: block;
+        position: relative;
+        z-index: 2;
+      }
+
+      .service-card-top {
+        position: relative;
+        z-index: 2;
+      }
+
+      .service-card-top h3 {
+        margin-bottom: var(--spacing-md);
+        font-size: 24px;
+        color: var(--card-accent, #FFFFFF) !important;
+        font-weight: 600;
+      }
+
+      .service-card-top p {
+        margin-bottom: var(--spacing-lg);
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .service-card .btn-text {
+        border: 1.5px solid var(--card-accent) !important;
+        color: var(--card-accent) !important;
+        background: transparent !important;
+        border-radius: 9999px !important;
+        padding: 8px 24px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: fit-content !important;
+        transition: all 0.25s ease !important;
+        text-decoration: none !important;
+        margin-top: auto !important;
+        position: relative !important;
+        z-index: 2 !important;
+      }
+
+      .service-card .btn-text:hover {
+        background: var(--card-accent) !important;
+        color: #FFFFFF !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+      }
+
+      /* QUIZ SECTION (Former MID CTA BANNER) */
+      .pasu {
+        padding: var(--spacing-xxl) 0;
+      }
+
+      .pasu-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        border: 3px solid transparent !important;
+        background: linear-gradient(135deg, #1C1231 0%, #3B2562 100%) padding-box,
+                    linear-gradient(135deg, #3B2562 0%, #1C1231 100%) border-box !important;
+        border-radius: 20px !important;
+        padding: var(--spacing-xxl) var(--spacing-xl) !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: var(--spacing-md) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+        color: #FFFFFF !important;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .pasu-inner:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 20px 40px rgba(139, 80, 243, 0.2) !important;
+        border-color: var(--primary-3) !important;
+      }
+
+      .pasu-inner::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        right: -10%;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(139, 80, 243, 0.15) 0%, rgba(139, 80, 243, 0) 70%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .pasu-label {
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #b18bfd !important;
+        margin-bottom: var(--spacing-xs);
+        z-index: 2;
+        position: relative;
+      }
+
+      .pasu-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: #FFFFFF !important;
+        position: relative;
+        z-index: 2;
+        line-height: 1.3;
+        margin-bottom: 12px;
+      }
+
+      .pasu-inner .btn-primary {
+        background-color: #8B50F3 !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        padding: 12px 28px !important;
+        border-radius: 9999px !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 15px !important;
+        z-index: 2;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(139, 80, 243, 0.3) !important;
+      }
+
+      .pasu-inner .btn-primary:hover {
+        transform: translateY(-2px) !important;
+        background-color: #9c6af6 !important;
+        box-shadow: 0 6px 20px rgba(139, 80, 243, 0.4) !important;
+      }
+
+      .quiz-q {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        z-index: 2;
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+
+      .q-num {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #b18bfd !important;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .q-text {
+        font-size: 22px;
+        font-weight: 600;
+        color: #FFFFFF !important;
+        margin-bottom: 12px;
+        max-width: 600px;
+        line-height: 1.3;
+      }
+
+      .q-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .q-btn {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        color: #FFFFFF !important;
+        padding: 14px 20px !important;
+        border-radius: 12px !important;
+        font-size: 14.5px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        text-align: left !important;
+        width: 100% !important;
+        line-height: 1.4 !important;
+      }
+
+      .q-btn:hover {
+        background: rgba(255, 255, 255, 0.12) !important;
+        border-color: #b18bfd !important;
+        transform: translateX(4px) translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(139, 80, 243, 0.15) !important;
+      }
+
+      .q-btn:active {
+        transform: scale(0.98);
+      }
+
+      .pasu-inner .btn-outline {
+        background: transparent !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        color: rgba(255, 255, 255, 0.85) !important;
+        padding: 10px 20px !important;
+        border-radius: 9999px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        display: inline-flex !important;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .pasu-inner .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: #FFFFFF !important;
+        color: #FFFFFF !important;
+      }
+
+      .text-highlight {
+        color: #8ee84c !important;
+      }
+
+      .result-badge {
+        display: inline-block;
+        background: rgba(142, 232, 76, 0.15) !important;
+        color: #8ee84c !important;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        margin-bottom: 12px;
+        z-index: 2;
+        position: relative;
+      }
+
+      .result-badge.badge-lilac {
+        background: rgba(177, 139, 253, 0.15) !important;
+        color: #b18bfd !important;
+      }
+      .result-badge.badge-lime {
+        background: rgba(142, 232, 76, 0.15) !important;
+        color: #8ee84c !important;
+      }
+      .result-badge.badge-orange {
+        background: rgba(239, 170, 21, 0.15) !important;
+        color: var(--accent-5) !important;
+      }
+
+      .result-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: #FFFFFF !important;
+        margin-bottom: 12px;
+        z-index: 2;
+        position: relative;
+      }
+
+      .result-desc {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85) !important;
+        max-width: 600px;
+        margin: 0 auto 20px auto;
+        z-index: 2;
+        position: relative;
+      }
+
+      .result-bullets {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 440px;
+        margin: 0 auto 24px auto;
+        text-align: left;
+        z-index: 2;
+        position: relative;
+      }
+
+      .result-bullets li {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.9) !important;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .result-bullets li::before {
+        content: "✦";
+        color: #b18bfd;
+        font-weight: bold;
+      }
+
+      .result-bullets li.bullet-lilac::before {
+        color: #b18bfd !important;
+      }
+      .result-bullets li.bullet-lime::before {
+        color: #8ee84c !important;
+      }
+      .result-bullets li.bullet-orange::before {
+        color: var(--accent-5) !important;
+      }
+
+      .result-cta-btn {
+        margin-top: 10px;
+        background-color: #8ee84c !important;
+        color: #0C081A !important;
+        box-shadow: 0 4px 15px rgba(142, 232, 76, 0.3) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 12px 28px !important;
+        border-radius: 9999px !important;
+        font-weight: 600 !important;
+        font-size: 15px !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        position: relative;
+        z-index: 2;
+      }
+
+      .result-cta-btn:hover {
+        background-color: #a3f36a !important;
+        box-shadow: 0 6px 20px rgba(142, 232, 76, 0.4) !important;
+        transform: translateY(-2px);
+      }
+
+      .result-cta-btn.btn-lilac {
+        background-color: #b18bfd !important;
+        box-shadow: 0 4px 15px rgba(177, 139, 253, 0.3) !important;
+      }
+      .result-cta-btn.btn-lilac:hover {
+        background-color: #c4a5fe !important;
+        box-shadow: 0 6px 20px rgba(177, 139, 253, 0.4) !important;
+      }
+
+      .result-cta-btn.btn-lime {
+        background-color: #8ee84c !important;
+        box-shadow: 0 4px 15px rgba(142, 232, 76, 0.3) !important;
+      }
+      .result-cta-btn.btn-lime:hover {
+        background-color: #a3f36a !important;
+        box-shadow: 0 6px 20px rgba(142, 232, 76, 0.4) !important;
+      }
+
+      .result-cta-btn.btn-orange {
+        background-color: var(--accent-5) !important;
+        box-shadow: 0 4px 15px rgba(239, 170, 21, 0.3) !important;
+      }
+      .result-cta-btn.btn-orange:hover {
+        background-color: var(--accent-4) !important;
+        box-shadow: 0 6px 20px rgba(239, 170, 21, 0.4) !important;
+      }
+
+      /* CASE STUDIES ("Ko esam paveikuši") */
+      .case-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--spacing-lg);
+      }
+
+      .case-large {
+        grid-column: span 5;
+        border: 3px solid transparent !important;
+        background: linear-gradient(135deg, #1C1231 0%, #3B2562 100%) padding-box,
+                    linear-gradient(135deg, #3B2562 0%, #1C1231 100%) border-box !important;
+        border-radius: 20px !important;
+        padding: var(--spacing-xl);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        position: relative;
+        min-height: 480px;
+        color: #FFFFFF !important;
+      }
+
+      .case-large h3 {
+        color: #FFFFFF !important;
+      }
+
+      .case-large p {
+        color: rgba(255, 255, 255, 0.8) !important;
+      }
+
+      .case-large:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(139, 80, 243, 0.2);
+        border-color: var(--primary-3) !important;
+      }
+
+      .case-tag {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: var(--primary-3) !important;
+        margin-bottom: var(--spacing-md);
+        display: inline-block;
+      }
+
+      .case-stats-panel {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 14px !important;
+        padding: var(--spacing-md);
+        margin-top: var(--spacing-xl);
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        backdrop-filter: blur(8px);
+      }
+
+      .case-stat-item .value {
+        font-weight: 700;
+        font-size: 28px;
+        color: var(--secondary-3) !important;
+        display: block;
+      }
+
+      .case-stat-item .label {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.6) !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .case-right-grid {
+        grid-column: span 7;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+      }
+
+      .case-small {
+        border: 3px solid transparent !important;
+        background: linear-gradient(135deg, #1C1231 0%, #3B2562 100%) padding-box,
+                    linear-gradient(135deg, #3B2562 0%, #1C1231 100%) border-box !important;
+        border-radius: 20px !important;
+        padding: var(--spacing-lg);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        min-height: 230px;
+        position: relative;
+        overflow: hidden;
+        color: #FFFFFF !important;
+      }
+
+      .case-small:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(139, 80, 243, 0.2);
+        border-color: var(--card-accent, var(--primary-3)) !important;
+      }
+
+      .case-small-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: var(--spacing-sm);
+        color: var(--card-accent, #FFFFFF) !important;
+      }
+
+      .case-small p {
+        color: rgba(255, 255, 255, 0.8) !important;
+      }
+
+      .case-small-metric {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--secondary-3) !important;
+        margin-top: var(--spacing-md);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+      }
+
+      /* TEAM SECTION ("Kas mēs esam") */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+      }
+
+      .team-card {
+        height: 400px;
+        border: 3px solid transparent !important;
+        background: var(--primary-10) padding-box,
+                    linear-gradient(135deg, var(--primary-8) 0%, var(--primary-9) 100%) border-box !important;
+        padding: 30px 24px !important;
+        border-radius: 20px !important;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                    border-color 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                    box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        position: relative;
+        overflow: hidden;
+        color: #FFFFFF !important;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .team-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary-3) !important;
+        box-shadow: 0 25px 50px rgba(139, 80, 243, 0.28);
+      }
+
+      /* Background gradient that fades in on hover */
+      .team-hover-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--primary-9) 0%, var(--primary-8) 100%);
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: none;
+      }
+
+      .team-card:hover .team-hover-bg {
+        opacity: 1;
+      }
+
+      /* Portrait Container */
+      .team-portrait {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+        overflow: hidden;
+        transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      /* High-quality real-member photography */
+      .team-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 10%;
+        filter: grayscale(40%) contrast(105%) brightness(95%);
+        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                    filter 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                    opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .team-card:hover .team-image {
+        transform: scale(1.08);
+        filter: grayscale(100%) contrast(110%) brightness(50%);
+        opacity: 0.15; /* Kept very soft under the gradient fill */
+      }
+
+      /* Overlay vignette to make text legible by default */
+      .team-portrait::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 65%;
+        background: linear-gradient(to top, rgba(12, 7, 23, 0.95) 0%, rgba(12, 7, 23, 0.4) 55%, transparent 100%);
+        z-index: 1;
+        transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: none;
+      }
+
+      .team-card:hover .team-portrait::after {
+        opacity: 0; /* Fully reveal the hover gradient */
+      }
+
+      /* Content container */
+      .team-card-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+      }
+
+      /* Default Left-Bottom Header */
+      .team-header-default {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        text-align: left;
+        z-index: 2;
+        transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: none;
+      }
+
+      .team-card:hover .team-header-default {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+
+      /* Hover Top-Center Header */
+      .team-header-hover {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: none;
+      }
+
+      .team-card:hover .team-header-hover {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Header Typography */
+      .team-header-default h3, .team-header-hover h3 {
+        font-size: 19px;
+        font-weight: 700;
+        margin: 0 0 4px 0 !important;
+        color: #FFFFFF !important;
+        line-height: 1.2;
+      }
+
+      .team-header-hover h3 {
+        color: var(--primary-3) !important; /* Beautiful highlight on hover */
+      }
+
+      .team-header-default .team-role, .team-header-hover .team-role {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin: 0 !important;
+      }
+
+      .team-header-default .team-role {
+        color: var(--primary-3) !important;
+      }
+
+      .team-header-hover .team-role {
+        color: rgba(255, 255, 255, 0.8) !important;
+      }
+
+      /* Biography description (positioned exactly where the default header was) */
+      .team-bio {
+        position: absolute;
+        bottom: 0px; /* Aligns exactly with the default header's bottom */
+        left: 0px;
+        right: 0px;
+        font-size: 14px;
+        line-height: 22px;
+        color: rgba(255, 255, 255, 0.88) !important;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1) 0.05s,
+                    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) 0.05s; /* Slight delay for elegant staggered entrance */
+        text-align: center;
+        margin: 0 !important;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .team-card:hover .team-bio {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* TESTIMONIALS ("Ko saka mūsu klienti") */
+      .testimonials-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 15px 0;
+        margin: -15px 0;
+      }
+
+      .testimonials-track {
+        display: flex;
+        gap: var(--spacing-lg);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: grab;
+        user-select: none;
+      }
+
+      .testimonials-track:active {
+        cursor: grabbing;
+      }
+
+      .testimonial-card {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 calc(50% - var(--spacing-md));
+        border: 3px solid transparent !important;
+        background: linear-gradient(135deg, #1C1231 0%, #3B2562 100%) padding-box,
+                    linear-gradient(135deg, #3B2562 0%, #1C1231 100%) border-box !important;
+        border-radius: 20px !important;
+        padding: var(--spacing-xl);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 280px;
+        transition: all 0.3s ease;
+        color: #FFFFFF !important;
+      }
+
+      .testimonial-card:hover {
+        z-index: 10;
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(139, 80, 243, 0.2);
+        border-color: var(--primary-3) !important;
+      }
+
+      .testimonial-quote {
+        font-size: 16px;
+        line-height: 26px;
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-style: italic;
+        margin-bottom: var(--spacing-lg);
+        position: relative;
+        z-index: 2;
+      }
+
+      .testimonial-quote::before {
+        content: "“";
+        font-size: 56px;
+        color: rgba(255, 255, 255, 0.08) !important;
+        position: absolute;
+        top: -24px;
+        left: -16px;
+        font-family: serif;
+        line-height: 1;
+        z-index: -1;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+      }
+
+      .author-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: var(--neutral-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--neutral-200);
+      }
+
+      .author-avatar svg {
+        width: 22px;
+        height: 22px;
+        color: var(--primary-400);
+      }
+
+      .author-info h4 {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--primary-500);
+      }
+
+      .author-info p {
+        font-size: 13px;
+        color: var(--primary-300);
+        line-height: 1.3;
+      }
+
+      .testimonials-nav {
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+        gap: 16px;
+        margin-top: var(--spacing-xl);
+        width: 100%;
+      }
+
+      .carousel-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--primary-5);
+        cursor: default;
+        transition: all 0.25s ease;
+        box-shadow: 0 0 8px var(--primary-5);
+      }
+
+      .carousel-arrows {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--neutral-000);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: var(--primary-500);
+      }
+
+      .carousel-arrow:hover {
+        background-color: var(--neutral-100);
+        border-color: var(--neutral-300);
+      }
+
+      .carousel-arrow:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      /* FINAL CTA / CONTACT SECTION */
+      .contact-card {
+        border: 3px solid transparent !important;
+        background: linear-gradient(135deg, #1C1231 0%, #3B2562 100%) padding-box,
+                    linear-gradient(135deg, #3B2562 0%, #1C1231 100%) border-box !important;
+        border-radius: 20px !important;
+        padding: var(--spacing-xxl) var(--spacing-xl) !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1.1fr !important;
+        gap: var(--spacing-xxl) !important;
+        align-items: start !important;
+        overflow: hidden !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+        position: relative !important;
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(139, 80, 243, 0.15) 0%, rgba(139, 80, 243, 0) 70%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .contact-lead {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-lead h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #FFFFFF !important;
+      }
+
+      .contact-lead p {
+        color: rgba(255, 255, 255, 0.85) !important;
+      }
+
+      .contact-details {
+        margin-top: var(--spacing-xl);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+      }
+
+      .contact-detail-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+      }
+
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-3) !important;
+        transition: all 0.2s ease;
+      }
+
+      .contact-detail-item:hover .contact-icon {
+        background-color: var(--primary-5) !important;
+        color: #FFFFFF !important;
+        transform: scale(1.05);
+      }
+
+      .contact-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        stroke-width: 1.5;
+        fill: none;
+      }
+
+      .contact-text h4 {
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: var(--primary-3) !important;
+        margin-bottom: 2px;
+      }
+
+      .contact-text p {
+        font-size: 15px;
+        font-weight: 500;
+        color: #FFFFFF !important;
+      }
+
+      .contact-form-container {
+        background: rgba(255, 255, 255, 0.04) !important;
+        padding: var(--spacing-xl) !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+        backdrop-filter: blur(12px) !important;
+        position: relative;
+        min-height: 400px;
+        z-index: 2;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+      }
+
+      .form-group label {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--primary-3) !important;
+      }
+
+      .form-control {
+        height: 44px;
+        width: 100%;
+        padding: 0 var(--spacing-md);
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        color: #FFFFFF !important;
+        border-radius: var(--radius-sm);
+        font-family: var(--font-family);
+        font-size: 15px;
+        outline: none;
+        transition: all 0.2s ease;
+      }
+
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.4) !important;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-3) !important;
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 0 0 1px rgba(139, 80, 243, 0.3);
+      }
+
+      textarea.form-control {
+        height: 100px;
+        padding-top: var(--spacing-sm);
+        resize: none;
+      }
+
+      .error-msg {
+        color: #fca5a5;
+        font-size: 12px;
+        margin-top: 2px;
+        display: none;
+      }
+
+      .form-control.invalid {
+        border-color: #f87171 !important;
+      }
+
+      /* Success Screen in Form Box */
+      .success-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1a103c !important;
+        border-radius: 16px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: var(--spacing-xl);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 10;
+        color: #FFFFFF !important;
+      }
+
+      .success-screen.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .success-icon-wrap {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: var(--secondary-1);
+        border: 1px solid var(--secondary-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--spacing-lg);
+        color: var(--secondary-7);
+      }
+
+      .success-icon-wrap svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .success-screen h3 {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .success-screen p {
+        font-size: 15px;
+        margin-bottom: var(--spacing-lg);
+      }
+
+      /* FOOTER */
+      footer {
+        border-top: 0.5px solid var(--border);
+        padding: 2rem max(var(--spacing-lg), calc((100% - var(--container-width)) / 2 + var(--spacing-lg)));
+        background-color: var(--bg-main);
+      }
+
+      .footer-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0px;
+        flex-wrap: wrap;
+        gap: var(--spacing-lg);
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+      }
+
+      .footer-logo {
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--primary-500) !important;
+        letter-spacing: -0.015em;
+      }
+
+      .footer-logo span {
+        color: var(--primary-5) !important;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+
+      .footer-links a {
+        font-size: 11px;
+        color: var(--primary-300) !important;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-5) !important;
+      }
+
+      .footer-social {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .social-icon {
+        color: var(--primary-300) !important;
+        transition: color 0.2s, transform 0.2s;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .social-icon:hover {
+        color: var(--primary-5) !important;
+        transform: translateY(-2px);
+      }
+
+      .footer-copy {
+        font-size: 11px;
+        color: var(--primary-300) !important;
+        line-height: 1.4;
+      }
+
+      /* RESPONSIVENESS (MOBILE-FIRST PRINCIPLES) */
+      @media (max-width: 1024px) {
+        h1 {
+          font-size: 38px;
+          line-height: 46px;
+        }
+        
+        h2 {
+          font-size: 28px;
+          line-height: 36px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          position: relative;
+          min-height: 550px;
+          display: flex !important;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .hero-content {
+          position: relative;
+          z-index: 5;
+          max-width: 100%;
+          text-align: center;
+          align-items: center;
+          margin: 0 auto;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+
+        .hero-visual-card {
+          position: absolute !important;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) !important;
+          width: 435px !important; /* Reduced 25% */
+          height: 435px !important; /* Reduced 25% */
+          opacity: 1 !important; /* Fully opaque so the glow remains ultra-bright */
+          z-index: 1 !important;
+          pointer-events: none;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          padding: 0 !important;
+        }
+
+        #hero-logo-svg {
+          opacity: 0.3 !important; /* Keep watermark SVG paths subtle */
+        }
+
+        .hero-logo-watermark {
+          width: 412px !important; /* Reduced 25% */
+          height: 412px !important; /* Reduced 25% */
+          max-width: 100% !important;
+          max-height: 100% !important;
+          position: relative !important;
+          right: auto !important;
+          bottom: auto !important;
+          margin: 0 auto !important;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .case-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .case-large {
+          grid-column: span 1;
+          min-height: auto;
+        }
+
+        .case-right-grid {
+          grid-column: span 1;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .testimonial-card {
+          flex: 0 0 100%;
+        }
+
+        .contact-card {
+          grid-template-columns: 1fr !important;
+          gap: var(--spacing-xl) !important;
+          padding: var(--spacing-xl) var(--spacing-md) !important;
+          text-align: center;
+        }
+
+        .contact-lead {
+          align-items: center;
+        }
+
+        .contact-lead h2 {
+          font-size: 28px !important;
+          line-height: 1.3 !important;
+          text-align: center;
+        }
+
+        .contact-lead p,
+        .contact-details {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --spacing-section: 64px;
+        }
+
+        .hero {
+          padding-top: calc(var(--spacing-section) + 10px);
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-xl);
+          position: relative;
+          min-height: 480px;
+          display: flex !important;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .hero-visual {
+          height: 350px;
+        }
+
+        .hero-visual-card {
+          position: absolute !important;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) !important;
+          width: 330px !important; /* Reduced 25% */
+          height: 330px !important; /* Reduced 25% */
+          opacity: 1 !important; /* Fully opaque so the glow remains ultra-bright */
+          z-index: 1 !important;
+          pointer-events: none;
+          padding: 0 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+
+        #hero-logo-svg {
+          opacity: 0.25 !important; /* Keep watermark SVG paths subtle on mobile */
+        }
+
+        .hero-logo-watermark {
+          width: 315px !important; /* Reduced 25% */
+          height: 315px !important; /* Reduced 25% */
+          max-width: 100% !important;
+          max-height: 100% !important;
+          position: relative !important;
+          right: auto !important;
+          bottom: auto !important;
+          margin: 0 auto !important;
+        }
+
+        .menu-btn {
+          display: block;
+        }
+
+        header {
+          position: fixed !important;
+          top: 0;
+          left: 0;
+          width: 100% !important;
+        }
+
+        header nav {
+          display: none !important;
+        }
+
+        header .btn-nav {
+          display: none !important;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .case-right-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-top {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: var(--spacing-md);
+        }
+
+        .footer-brand {
+          align-items: center;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          align-items: center;
+          gap: var(--spacing-sm);
+        }
+      }
+    </style>
+    <script>
+      // Blocking theme setup to keep dark theme only
+      (function() {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      })();
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+
+    <!-- STICKY HEADER -->
+    <header id="main-header">
+      <a class="logo" href="index.html">
+        <img src="images/logo.svg" alt="AI Master Lab" style="height: 32px; width: auto; display: block;" />
+      </a>
+      <nav>
+        <!-- MI pārvaldība — standalone -->
+        <a class="nav-link" href="aiml_governance.html">MI pārvaldība</a>
+
+        <!-- MI apmācības dropdown -->
+        <div class="nav-item">
+          <a class="nav-link" href="aiml_training.html">
+            MI apmācības
+            <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="aiml_visas_apmacibas.html">Visas apmācības</a>
+          </div>
+        </div>
+
+        <!-- MI ieviešana un mērogošana — standalone -->
+        <a class="nav-link" href="aiml_ieviesana.html">MI ieviešana un mērogošana</a>
+
+        <!-- Pakalpojumi dropdown -->
+        <div class="nav-item">
+          <a class="nav-link" href="#">
+            Pakalpojumi
+            <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="aiml_governance.html">MI vadlīnijas</a>
+            <a href="aiml_governance.html">MI procesu audits</a>
+            <a href="aiml_governance.html">Konsultācijas</a>
+          </div>
+        </div>
+
+        <!-- Portfolio — standalone (own page) -->
+        <a class="nav-link" href="aiml_portfolio.html">Portfolio</a>
+
+        <!-- Par mums dropdown -->
+        <div class="nav-item">
+          <a class="nav-link" href="#">
+            Par mums
+            <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="aiml_par_mums.html#pieeja">Mūsu pieeja</a>
+            <a href="aiml_par_mums.html#eksperti">Eksperti</a>
+            <div class="dropdown-divider"></div>
+            <a href="aiml_jaunumi.html">Jaunumi</a>
+            <a href="aiml_zinu_vestule.html">MI ziņu vēstule</a>
+            <a href="aiml_par_mums.html#kontakti">Kontakti</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-right-actions">
+
+        <a class="btn-nav" href="#contact">Pieteikties sarunai</a>
+        <button class="menu-btn" id="mobile-menu-trigger" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU BACKDROP -->
+    <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+
+    <!-- MOBILE SIDEBAR MENU (SLIDES FROM RIGHT) -->
+    <div class="mobile-menu" id="mobile-menu-overlay">
+      <!-- Top bar inside mobile drawer with centered logo and right close button -->
+      <div class="mobile-menu-header">
+        <div class="mobile-menu-logo">
+          <img src="images/logo.svg" alt="AI Master Lab" style="height: 32px; width: auto; display: block;" />
+        </div>
+        <button class="mobile-menu-close" id="mobile-menu-close-btn" aria-label="Aizvērt izvēlni">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="mobile-menu-content">
+        <nav class="mobile-nav">
+          <!-- MI pārvaldība — standalone -->
+          <div class="mobile-nav-item">
+            <a class="mobile-nav-link" href="aiml_governance.html">MI pārvaldība</a>
+          </div>
+
+          <!-- MI apmācības collapsible -->
+          <div class="mobile-nav-item">
+            <button class="mobile-nav-collapse-trigger">
+              MI apmācības
+              <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="mobile-nav-collapse-content">
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_training.html">MI apmācības</a>
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_visas_apmacibas.html">Visas apmācības</a>
+            </div>
+          </div>
+
+          <!-- MI ieviešana un mērogošana — standalone -->
+          <div class="mobile-nav-item">
+            <a class="mobile-nav-link" href="aiml_ieviesana.html">MI ieviešana un mērogošana</a>
+          </div>
+
+          <!-- Pakalpojumi collapsible -->
+          <div class="mobile-nav-item">
+            <button class="mobile-nav-collapse-trigger">
+              Pakalpojumi
+              <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="mobile-nav-collapse-content">
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_governance.html">MI vadlīnijas</a>
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_governance.html">MI procesu audits</a>
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_governance.html">Konsultācijas</a>
+            </div>
+          </div>
+
+          <!-- Portfolio — standalone -->
+          <div class="mobile-nav-item">
+            <a class="mobile-nav-link" href="aiml_portfolio.html">Portfolio</a>
+          </div>
+
+          <!-- Par mums collapsible -->
+          <div class="mobile-nav-item">
+            <button class="mobile-nav-collapse-trigger">
+              Par mums
+              <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="mobile-nav-collapse-content">
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_par_mums.html#pieeja">Mūsu pieeja</a>
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_par_mums.html#eksperti">Eksperti</a>
+              <div class="mobile-sub-divider"></div>
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_jaunumi.html">Jaunumi</a>
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_zinu_vestule.html">MI ziņu vēstule</a>
+              <a class="mobile-nav-link mobile-sub-link" href="aiml_par_mums.html#kontakti">Kontakti</a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="mobile-menu-footer">
+          <a href="#contact" class="btn btn-primary mobile-nav-btn" style="width: 100%;">Pieteikties sarunai</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero section-glow-left">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <h1><span class="text-highlight">MI uzņēmuma</span> izaugsmei<br />un konkurētspējai.</h1>
+          <p class="p-large">Sakārtota MI ieviešana.Komanda, kas spēj vairāk.<br /> Uzņēmums, kas aug ātrāk.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Pieteikt Konsultāciju</a>
+          </div>
+        </div>
+        <div class="hero-visual-card reveal">
+          <div class="hero-logo-watermark">
+            <svg id="hero-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; display: block;">
+              <!-- Purple paths -->
+              <path class="logo-path" data-color="purple" d="M21.3333 41.0257L21.3333 55.7949L36.1025 41.0257L36.1025 26.2564L21.3333 41.0257Z" />
+              <path class="logo-path" data-color="purple" d="M63.9999 42.6667L63.9999 7.62939e-06L42.6666 21.3333L42.6666 64L63.9999 42.6667Z" />
+
+              <!-- Lime paths -->
+              <path class="logo-path" data-color="lime" d="M21.3333 26.2564H36.1025L21.3333 41.0257H6.56409L21.3333 26.2564Z" />
+              <path class="logo-path" data-color="lime" d="M21.3333 0L64 0L42.6667 21.3333L0 21.3333L21.3333 0Z" />
+            </svg>
+            <canvas id="trail-canvas" style="position: absolute; top: -15%; left: -15%; width: 130%; height: 130%; pointer-events: none; z-index: 20;"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST LOGOS STRIP -->
+    <div class="trust-strip">
+      <div class="container trust-container">
+        <span class="trust-label">Mums uzticas vadošie uzņēmumi</span>
+        <div class="trust-carousel-viewport">
+          <div class="trust-carousel-track">
+            <!-- Group 1 (9 Distinct logos) -->
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              NEXUS
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M1.5 22L12 2l10.5 20H1.5zm10.5-4l6 11H6l-6 11H12z"/></svg>
+              ALPHA
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+              APEX
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+              SYNERGY
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 12h5v10h10V12h5L12 2z"/></svg>
+              VERTEX
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10h-10V2z"/></svg>
+              QUANTUM
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M3 20h18M6.5 20c0-6 4.5-10 5.5-10s5 4 5 10"/></svg>
+              OMEGA
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              ORION
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+              HORIZON
+            </div>
+
+            <!-- Group 2 (Duplicate Group for seamless infinite scroll) -->
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              NEXUS
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M1.5 22L12 2l10.5 20H1.5zm10.5-4l6 11H6l-6 11H12z"/></svg>
+              ALPHA
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+              APEX
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+              SYNERGY
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 12h5v10h10V12h5L12 2z"/></svg>
+              VERTEX
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10h-10V2z"/></svg>
+              QUANTUM
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M3 20h18M6.5 20c0-6 4.5-10 5.5-10s5 4 5 10"/></svg>
+              OMEGA
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              ORION
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+              HORIZON
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES ("Kā mēs strādājam") -->
+    <section id="services" class="section-alt section-glow">
+      <div class="container">
+        <div class="section-header header-right reveal">
+          <h2>Kā Mēs <span class="text-highlight">Strādājam</span></h2>
+          <p class="p-large">Mūsu pieeja ir balstīta uz tiešu un skaidru strukturētu procesu, nodrošinot augstāko precizitāti un izmērāmus biznesa panākumus.</p>
+        </div>
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <div class="service-card reveal" style="--card-accent: #b18bfd;">
+            <div class="service-card-top">
+              <h3>MI pārvaldība</h3>
+              <p>
+                Mēs palīdzam uzņēmumiem izveidot skaidrus ietvarus un drošas vadlīnijas MI rīku ieviešanai ikdienā. Nodrošinām atbilstību un samazinām riskus, lai jūsu darbinieki varētu pilnvērtīgi attīstīt inovācijas.
+              </p>
+            </div>
+            <div class="card-watermark">1</div>
+            <a href="aiml_governance.html" class="btn-text">Pieteikties konsultācijai</a>
+          </div>
+          <!-- Card 2 -->
+          <div class="service-card reveal" style="--card-accent: #8ee84c; transition-delay: 0.1s;">
+            <div class="service-card-top">
+              <h3>MI apmācības</h3>
+              <p>
+                Nodrošinām praktiskas un pielāgotas meistarklases jūsu komandai. No vienkāršiem teksta un attēlu ģeneratoriem līdz sarežģītu darba plūsmu automatizācijai, kas paaugstina efektivitāti tūlītēji.
+              </p>
+            </div>
+            <div class="card-watermark">2</div>
+            <a href="aiml_training.html" class="btn-text">Skatīt programmas</a>
+          </div>
+          <!-- Card 3 -->
+          <div class="service-card reveal" style="--card-accent: var(--accent-5); transition-delay: 0.2s;">
+            <div class="service-card-top">
+              <h3>Ideju validēšana</h3>
+              <p>
+                Palīdzam pārvērst teorētiskas biznesa idejas reālos, funkcionējošos prototipos dažu dienu, nevis mēnešu laikā. Veicam ātru validāciju, lai izvairītos no dārgām sistēmas kļūdām.
+              </p>
+            </div>
+            <div class="card-watermark">3</div>
+            <a href="aiml_ieviesana.html" class="btn-text">Uzsākt prototipu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MI QUIZ SECTION -->
+    <section class="pasu">
+      <div class="container reveal">
+        <div class="pasu-inner" id="quiz-block">
+          <div id="quiz-intro">
+            <h2 class="pasu-title">Kā MI iederas <span class="text-highlight">Tavā uzņēmumā?</span></h2>
+            <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:1.5rem;line-height:1.6">Veic 5 sekunžu eksprestestu (3 īsi jautājumi) un saņem tūlītēju, praktisku pīlāra ieteikumu tieši savai situācijai.</p>
+            <button class="btn-primary" onclick="startQuiz()">Veic īsu testu</button>
+          </div>
+          <div id="quiz-questions" style="display:none;width:100%">
+            <div class="quiz-q" id="q1">
+              <div class="q-num">Jautājums 1 no 3</div>
+              <div class="q-text">Ko Tu pārstāvi organizācijā?</div>
+              <div class="q-options">
+                <button class="q-btn" onclick="answer(1,'p1')">Vadītājs / C-suite</button>
+                <button class="q-btn" onclick="answer(1,'p2')">HR vai L&amp;D vadītājs</button>
+                <button class="q-btn" onclick="answer(1,'p3')">Produktu vai inovāciju vadītājs</button>
+                <button class="q-btn" onclick="answer(1,'p2')">Speciālists vai komandas loceklis</button>
+              </div>
+            </div>
+            <div class="quiz-q" id="q2" style="display:none">
+              <div class="q-num">Jautājums 2 no 3</div>
+              <div class="q-text">Kā MI šobrīd izskatās Tavā organizācijā?</div>
+              <div class="q-options">
+                <button class="q-btn" onclick="answer(2,'p1')">Nav skaidras stratēģijas katrs dara pēc savas saprašanas</button>
+                <button class="q-btn" onclick="answer(2,'p2')">Esam sākuši, bet komandai trūkst zināšanu vai jūtama pretestība</button>
+                <button class="q-btn" onclick="answer(2,'p3')">Ir konkrēta ideja, ko gribam realizēt ar MI</button>
+                <button class="q-btn" onclick="answer(2,'p2')">Vēl neesam neko darījuši nesaprotam, ar ko sākt</button>
+              </div>
+            </div>
+            <div class="quiz-q" id="q3" style="display:none">
+              <div class="q-num">Jautājums 3 no 3</div>
+              <div class="q-text">Kas ir Tavs galvenais mērķis tuvākajā laikā?</div>
+              <div class="q-options">
+                <button class="q-btn" onclick="answer(3,'p1')">Mazināt MI riskus un stiprināt vīziju par MI lomu mūsu konkrētspējā</button>
+                <button class="q-btn" onclick="answer(3,'p2')">Turpināt strādāt ar MI individuālā lietojuma līmenī</button>
+                <button class="q-btn" onclick="answer(3,'p3')">Attīstīt MI lietojuma idejas, kas mums jau ir</button>
+                <button class="q-btn" onclick="answer(3,'p2')">Saprast, kur MI vispār iederās mūsu biznesā</button>
+              </div>
+            </div>
+          </div>
+          <div id="quiz-result" style="display:none;width:100%">
+            <div id="result-content"></div>
+            <button class="btn-outline" onclick="resetQuiz()" style="margin-top:1.25rem;font-size:13px">Sākt no jauna</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES ("Ko esam paveikuši") -->
+    <section id="case-studies" class="section-alt section-glow">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Ko Esam <span class="text-highlight">Paveikuši</span></h2>
+          <p class="p-large">Ielūkojieties mūsu reālajos un praktiskajos projektos, kuros integrētie AI risinājumi jau šodien sniedz izcilus finanšu rezultātus.</p>
+        </div>
+        <div class="case-grid">
+          <!-- Left Big Card -->
+          <div class="case-large reveal">
+            <div>
+              <span class="case-tag">Finanšu Sektors</span>
+              <h3 style="font-size: 26px; margin-bottom: 12px;">Klientu atbalsta zvanu centra automatizācija</h3>
+              <p>Tika izstrādāts vieds balss asistents, kas balstīts uz pielāgotu valodas modeli. Asistents spēj patstāvīgi atbildēt uz 70% klientu pamata jautājumu, ievērojami atslogojot reālos operatorus un nodrošinot atbildes 24/7 režīmā.</p>
+            </div>
+            <div class="case-stats-panel">
+              <div class="case-stat-item">
+                <span class="value">-40%</span>
+                <span class="label">Dīkstāve</span>
+              </div>
+              <div class="case-stat-item">
+                <span class="value">98%</span>
+                <span class="label">Precizitāte</span>
+              </div>
+              <div class="case-stat-item">
+                <span class="value">3.2x</span>
+                <span class="label">Atdeve</span>
+              </div>
+            </div>
+          </div>
+          <!-- Right Grid of 4 small cards -->
+          <div class="case-right-grid">
+            <!-- Small Card 1 -->
+            <div class="case-small reveal" style="--card-accent: #8ee84c; transition-delay: 0.1s;">
+              <div>
+                <span class="case-tag">Ražošana</span>
+                <h4 class="case-small-title">Prognozējamā iekārtu apkope</h4>
+                <p>Mašīnmācīšanās algoritmi analizē sensoru datus, iepriekš brīdinot par iekārtu bojājumu iespējamību.</p>
+              </div>
+              <span class="case-small-metric">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>
+                -25% neparedzētas dīkstāves
+              </span>
+            </div>
+            <!-- Small Card 2 -->
+            <div class="case-small reveal" style="--card-accent: #b18bfd; transition-delay: 0.15s;">
+              <div>
+                <span class="case-tag">Grāmatvedība</span>
+                <h4 class="case-small-title">Dokumentu un rēķinu klasifikācija</h4>
+                <p>OCR dokumentu nolasīšanas sistēma, kas automātiski sadala un ievada ienākošos rēķinus ERP sistēmā.</p>
+              </div>
+              <span class="case-small-metric">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>
+                Apstrādes laiks: 3.5 sekundes
+              </span>
+            </div>
+            <!-- Small Card 3 -->
+            <div class="case-small reveal" style="--card-accent: var(--accent-5); transition-delay: 0.2s;">
+              <div>
+                <span class="case-tag">Mazumtirdzniecība</span>
+                <h4 class="case-small-title">Personalizētā e-komercija</h4>
+                <p>AI ieteikumu dzinējs, kas pielāgo vietnes piedāvājumus un grozu tieši pircēja individuālajām interesēm.</p>
+              </div>
+              <span class="case-small-metric">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>
+                +18% groza vērtības pieaugums
+              </span>
+            </div>
+            <!-- Small Card 4 -->
+            <div class="case-small reveal" style="--card-accent: #8ee84c; transition-delay: 0.25s;">
+              <div>
+                <span class="case-tag">Juridiskie Pakalpojumi</span>
+                <h4 class="case-small-title">Līgumu analīzes asistents</h4>
+                <p>AI sistēma, kas dažu sekunžu laikā salīdzina jaunos līgumus ar uzņēmuma standartu un atzīmē riskus.</p>
+              </div>
+              <span class="case-small-metric">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>
+                Samazina riskus par 90%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM ("Kas mēs esam") -->
+    <section id="team">
+      <div class="container">
+        <div class="section-header header-right reveal">
+          <h2>Kas <span class="text-highlight">Mēs</span> Esam</h2>
+          <p class="p-large">AI entuziastu un augstākā līmeņa inženieru komanda, kas tic tam, ka tehnoloģijām ir jākalpo biznesa mērķiem, nevis otrādi.</p>
+        </div>
+        <div class="team-grid">
+          <!-- Person 1 -->
+          <div class="team-card reveal">
+            <div class="team-hover-bg"></div>
+            <div class="team-portrait">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" alt="Guntis Kalniņš" class="team-image" />
+            </div>
+            <div class="team-card-content">
+              <div class="team-header-default">
+                <h3>Guntis Kalniņš</h3>
+                <div class="team-role">Partneris, Stratēģija</div>
+              </div>
+              <div class="team-header-hover">
+                <h3>Guntis Kalniņš</h3>
+                <div class="team-role">Partneris, Stratēģija</div>
+              </div>
+              <p class="team-bio">30+ gadi biznesa vadībā. MILA padomes loceklis. Stratēģiskā MI ieviešana organizācijās.</p>
+            </div>
+          </div>
+          <!-- Person 2 -->
+          <div class="team-card reveal" style="transition-delay: 0.1s;">
+            <div class="team-hover-bg"></div>
+            <div class="team-portrait">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop" alt="Ivars Krampis-Vanags" class="team-image" />
+            </div>
+            <div class="team-card-content">
+              <div class="team-header-default">
+                <h3>Ivars Krampis-Vanags</h3>
+                <div class="team-role">Partneris, Datu analītika</div>
+              </div>
+              <div class="team-header-hover">
+                <h3>Ivars Krampis-Vanags</h3>
+                <div class="team-role">Partneris, Datu analītika</div>
+              </div>
+              <p class="team-bio">Datu analītikas eksperts. MI aģentu praktizētājs no nulles līdz darbojošam risinājumam.</p>
+            </div>
+          </div>
+          <!-- Person 3 -->
+          <div class="team-card reveal" style="transition-delay: 0.15s;">
+            <div class="team-hover-bg"></div>
+            <div class="team-portrait">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" alt="Vija Kalniņa, Dr. iur." class="team-image" />
+            </div>
+            <div class="team-card-content">
+              <div class="team-header-default">
+                <h3>Vija Kalniņa, Dr. iur.</h3>
+                <div class="team-role">MI Pārvaldība</div>
+              </div>
+              <div class="team-header-hover">
+                <h3>Vija Kalniņa, Dr. iur.</h3>
+                <div class="team-role">MI Pārvaldība</div>
+              </div>
+              <p class="team-bio">Fulbraita stipendiāte. Hārvarda MI ētikas projekts. ES tiesību doktore. MI ētikas, tiesību un politikas eksperte.</p>
+            </div>
+          </div>
+          <!-- Person 4 -->
+          <div class="team-card reveal" style="transition-delay: 0.2s;">
+            <div class="team-hover-bg"></div>
+            <div class="team-portrait">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop" alt="Agris Šnepsts" class="team-image" />
+            </div>
+            <div class="team-card-content">
+              <div class="team-header-default">
+                <h3>Agris Šnepsts</h3>
+                <div class="team-role">Validācija, PoC</div>
+              </div>
+              <div class="team-header-hover">
+                <h3>Agris Šnepsts</h3>
+                <div class="team-role">Validācija, PoC</div>
+              </div>
+              <p class="team-bio">Ex-Accenture. Vada eksperimentu sprintus un ideju validācijas procesu klientu organizācijās.</p>
+            </div>
+          </div>
+          <!-- Person 5 -->
+          <div class="team-card reveal" style="transition-delay: 0.25s;">
+            <div class="team-hover-bg"></div>
+            <div class="team-portrait">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=600&auto=format&fit=crop" alt="Māra Veselova" class="team-image" />
+            </div>
+            <div class="team-card-content">
+              <div class="team-header-default">
+                <h3>Māra Veselova</h3>
+                <div class="team-role">Apmācību programmas</div>
+              </div>
+              <div class="team-header-hover">
+                <h3>Māra Veselova</h3>
+                <div class="team-role">Apmācību programmas</div>
+              </div>
+              <p class="team-bio">Atbild par apmācību programmu organizāciju un klientu attiecībām korporatīvajā segmentā.</p>
+            </div>
+          </div>
+          <!-- Person 6 -->
+          <div class="team-card reveal" style="transition-delay: 0.3s;">
+            <div class="team-hover-bg"></div>
+            <div class="team-portrait">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600&auto=format&fit=crop" alt="Armands Brants" class="team-image" />
+            </div>
+            <div class="team-card-content">
+              <div class="team-header-default">
+                <h3>Armands Brants</h3>
+                <div class="team-role">Tehniskā ekspertīze</div>
+              </div>
+              <div class="team-header-hover">
+                <h3>Armands Brants</h3>
+                <div class="team-role">Tehniskā ekspertīze</div>
+              </div>
+              <p class="team-bio">25+ gadi IT jomā. Programmatūras izstrāde, mākoņrisinājumi, digitālā transformācija. MI risinājumi, automatizācija, mērogojamas platformas.</p>
+            </div>
+          </div>
+          <!-- Person 7 -->
+          <div class="team-card reveal" style="transition-delay: 0.35s;">
+            <div class="team-hover-bg"></div>
+            <div class="team-portrait">
+              <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=600&auto=format&fit=crop" alt="Jānis Bēniķis" class="team-image" />
+            </div>
+            <div class="team-card-content">
+              <div class="team-header-default">
+                <h3>Jānis Bēniķis</h3>
+                <div class="team-role">Eksperts, Treneris</div>
+              </div>
+              <div class="team-header-hover">
+                <h3>Jānis Bēniķis</h3>
+                <div class="team-role">Eksperts, Treneris</div>
+              </div>
+              <p class="team-bio">MI aģentu un produktivitātes apmācību vadītājs. Praktizētājs ar dziļu tehnisko pieredzi.</p>
+            </div>
+          </div>
+          <!-- Person 8 -->
+          <div class="team-card reveal" style="transition-delay: 0.4s;">
+            <div class="team-hover-bg"></div>
+            <div class="team-portrait">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" alt="Jānis Judrups" class="team-image" />
+            </div>
+            <div class="team-card-content">
+              <div class="team-header-default">
+                <h3>Jānis Judrups</h3>
+                <div class="team-role">Dati, Pārvaldība</div>
+              </div>
+              <div class="team-header-hover">
+                <h3>Jānis Judrups</h3>
+                <div class="team-role">Dati, Pārvaldība</div>
+              </div>
+              <p class="team-bio">Akadēmiskā un tehniskā ekspertīze MI implementācijā. Fokuss: datu sagatavošana un MI priekšnosacījumi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS ("Ko saka mūsu klienti") -->
+    <section id="testimonials" class="section-alt section-glow">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Ko Saka <span class="text-highlight">Mūsu Klienti</span></h2>
+          <p class="p-large">Mūsu klienti novērtē mūsu skaidrību, precizitāti un izmērāmos uzņēmējdarbības panākumus ilgtermiņā.</p>
+        </div>
+        
+        <div class="testimonials-wrapper reveal">
+          <div class="testimonials-track" id="testimonial-carousel">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">Mācības nodrošināja vadībai skaidru MI ieviešanas redzējumu un risku mazināšanu. Rezultātā tika sagatavots praktisks plāns prioritārā MI projekta uzsākšanai, kas sniedz skaidru virzību tālākiem soļiem. Novērtējam sadarbību kā profesionālu un uz rezultātu orientētu.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="author-info">
+                  <h4>Artūrs Sausiņš</h4>
+                  <p>SIA “Mapri Būve”, Valdes loceklis</p>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">Sadarbība nodrošināja strukturētu un mērķtiecīgu pieeju MI ieviešanai. Darbnīcu ciklā ne tikai ieguvām izpratni, bet arī izstrādājām konkrētu MI projekta īstenošanas plānu, kas sasaistīts ar uzņēmuma stratēģiskajiem mērķiem. AI Master Lab pieeja ir praktiski orientēta un stratēģiski pārdomāta.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="author-info">
+                  <h4>Kristaps Paupe</h4>
+                  <p>VSIA "LNMC", Valdes loceklis</p>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">Augsti novērtējam treneru spēju iesaistīt vadības komandu, radot vidi, kur visi bija motivēti domāt elastīgi. Mācības palīdzēja fokusēt uzņēmuma attīstības stratēģiju, nodrošinot skaidru virzienu tālākai MI integrācijai organizācijā. Sadarbību vērtējam kā profesionālu un elastīgu.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="author-info">
+                  <h4>Armands Kalniņš</h4>
+                  <p>"Sunstar Group" Valdes loceklis</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonials-nav">
+            <button class="carousel-arrow" id="carousel-prev" aria-label="Iepriekšējā atsauksme">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="carousel-dots" id="carousel-dots-container">
+              <span class="dot"></span>
+            </div>
+            <button class="carousel-arrow" id="carousel-next" aria-label="Nākamā atsauksme">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA / CONTACT SECTION -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-lead">
+            <h2><span class="text-highlight">Gribi saprast,</span> kā MI var dot rezultātu tieši Tavā organizācijā?</h2>
+            <p class="p-large">Izstāsti par savu situāciju un ieteiksim optimālo pirmo soli.</p>
+            
+            <div class="contact-details">
+              <!-- Phone -->
+              <div class="contact-detail-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-text">
+                  <h4>Zvaniet mums</h4>
+                  <p>+ 371 26588866</p>
+                </div>
+              </div>
+              <!-- Email -->
+              <div class="contact-detail-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+                </div>
+                <div class="contact-text">
+                  <h4>Rakstiet e-pastu</h4>
+                  <p>info@aimasterlab.net</p>
+                </div>
+              </div>
+              <!-- Address -->
+              <div class="contact-detail-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="contact-text">
+                  <h4>Adrese</h4>
+                  <p>Ūbeļu iela 13, Ādaži, LV-2164</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Container -->
+          <div class="contact-form-container">
+            <form class="contact-form" id="consultation-form">
+              <div class="form-group">
+                <label for="form-name">Vārds, Uzvārds</label>
+                <input type="text" id="form-name" class="form-control" placeholder="Jānis Bērziņš" required>
+                <span class="error-msg" id="error-name">Šis lauks ir obligāts.</span>
+              </div>
+              <div class="form-group">
+                <label for="form-company">Uzņēmums</label>
+                <input type="text" id="form-company" class="form-control" placeholder="Uzņēmums SIA">
+              </div>
+              <div class="form-group">
+                <label for="form-email">E-PASTA ADRESE</label>
+                <input type="email" id="form-email" class="form-control" placeholder="vards.uzvards@uznemums.lv" required>
+                <span class="error-msg" id="error-email">Lūdzu, ievadiet derīgu e-pasta adresi.</span>
+              </div>
+              <div class="form-group">
+                <label for="form-message">Ziņojums / mērķis</label>
+                <textarea id="form-message" class="form-control" placeholder="Aprakstiet savu biznesa procesu vai automatizācijas vēlmes..." required></textarea>
+                <span class="error-msg" id="error-message">Lūdzu, uzrakstiet ziņojumu.</span>
+              </div>
+              <button type="submit" class="btn btn-accent" style="margin-top: 10px; width: 100%;">Pieteikties bezmaksas konsultācijai</button>
+            </form>
+
+            <!-- Gorgeous Success Screen -->
+            <div class="success-screen" id="form-success-screen">
+              <div class="success-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <h3>Pieteikums Saņemts!</h3>
+              <p>Paldies par izrādīto interesi. Mūsu AI konsultants sazināsies ar jums 24 stundu laikā, lai precizētu tikšanās detaļas.</p>
+              <button class="btn btn-secondary" id="success-btn-reset">Atgriezties pie formas</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo.svg" alt="AI Master Lab" style="height: 28px; width: auto; display: block;" />
+          </div>
+          <div class="footer-copy">© 2026 AI Master Lab</div>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privātuma politika</a>
+          <a href="aiml_zinu_vestule.html">Ziņu vēstule</a>
+          <a href="aiml_jaunumi.html">Jaunumi</a>
+          <a href="aiml_par_mums.html#kontakti">Kontakti</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.354V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- VANILLA JAVASCRIPT FOR MOTIONS & INTERACTIVE LOGIC -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        
+        // --- STICKY NAV ACTION ---
+        const header = document.getElementById("main-header");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+
+        // --- MOBILE NAV OVERLAY CONTROLS ---
+        const menuTrigger = document.getElementById("mobile-menu-trigger");
+        const menuOverlay = document.getElementById("mobile-menu-overlay");
+        const menuBackdrop = document.getElementById("mobile-menu-backdrop");
+        const menuCloseBtn = document.getElementById("mobile-menu-close-btn");
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link, .mobile-nav-btn");
+
+        function openMenu() {
+          menuOverlay.classList.add("open");
+          menuBackdrop.classList.add("show");
+          menuTrigger.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden"; // Prevent background scrolling
+        }
+
+        function closeMenu() {
+          menuOverlay.classList.remove("open");
+          menuBackdrop.classList.remove("show");
+          menuTrigger.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = ""; // Restore scrolling
+        }
+
+        function toggleMenu() {
+          const isOpen = menuOverlay.classList.contains("open");
+          if (isOpen) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        }
+
+        if (menuTrigger) menuTrigger.addEventListener("click", toggleMenu);
+        if (menuCloseBtn) menuCloseBtn.addEventListener("click", closeMenu);
+        if (menuBackdrop) menuBackdrop.addEventListener("click", closeMenu);
+
+        mobileNavLinks.forEach(link => {
+          link.addEventListener("click", () => {
+            closeMenu();
+          });
+        });
+
+        // Toggle mobile collapsibles (accordions)
+        const collapseTriggers = document.querySelectorAll(".mobile-nav-collapse-trigger");
+        collapseTriggers.forEach(trigger => {
+          trigger.addEventListener("click", (e) => {
+            e.preventDefault();
+            const parentItem = trigger.closest(".mobile-nav-item");
+            if (parentItem) {
+              // Close other open collapsibles (accordion behavior)
+              document.querySelectorAll(".mobile-nav-item").forEach(item => {
+                if (item !== parentItem) {
+                  item.classList.remove("active");
+                }
+              });
+              parentItem.classList.toggle("active");
+            }
+          });
+        });
+
+        // --- REVEAL ON SCROLL INTERSECTION OBSERVER ---
+        const revealElements = document.querySelectorAll(".reveal");
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              // Optional: Unobserve to run animation only once
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => {
+          revealObserver.observe(el);
+        });
+
+        // --- HERO INTERACTIVE AI NEURAL CANVAS ---
+        const canvas = document.getElementById("canvas-ai-particles");
+        if (canvas) {
+          const ctx = canvas.getContext("2d");
+          let particlesArray = [];
+          let canvasWidth = canvas.offsetWidth;
+          let canvasHeight = canvas.offsetHeight;
+          let mouse = { x: null, y: null, radius: 100 };
+
+          // Handle canvas responsive resizing
+          const resizeObserver = new ResizeObserver((entries) => {
+            for (let entry of entries) {
+              canvasWidth = entry.contentRect.width;
+              canvasHeight = entry.contentRect.height;
+              canvas.width = canvasWidth;
+              canvas.height = canvasHeight;
+              initParticles();
+            }
+          });
+          resizeObserver.observe(canvas.parentElement);
+
+          // Keep mouse coordinates
+          canvas.addEventListener("mousemove", (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+          });
+
+          canvas.addEventListener("mouseleave", () => {
+            mouse.x = null;
+            mouse.y = null;
+          });
+
+          // Particle Class
+          class Particle {
+            constructor(x, y, dx, dy, size) {
+              this.x = x;
+              this.y = y;
+              this.dx = dx;
+              this.dy = dy;
+              this.size = size;
+            }
+
+            draw() {
+              ctx.beginPath();
+              ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+              const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+              ctx.fillStyle = isDark ? "rgba(241, 245, 249, 0.45)" : "rgba(21, 23, 26, 0.45)";
+              ctx.fill();
+            }
+
+            update() {
+              // Bounce off boundaries safely
+              if (this.x > canvasWidth - this.size || this.x < this.size) {
+                this.dx = -this.dx;
+              }
+              if (this.y > canvasHeight - this.size || this.y < this.size) {
+                this.dy = -this.dy;
+              }
+
+              // Move particle
+              this.x += this.dx;
+              this.y += this.dy;
+
+              // Simple interactive cursor gravity
+              if (mouse.x !== null && mouse.y !== null) {
+                let diffX = this.x - mouse.x;
+                let diffY = this.y - mouse.y;
+                let distance = Math.sqrt(diffX * diffX + diffY * diffY);
+                if (distance < mouse.radius) {
+                  // Pull particles slightly closer to cursor
+                  const force = (mouse.radius - distance) / mouse.radius;
+                  this.x -= diffX * force * 0.05;
+                  this.y -= diffY * force * 0.05;
+                }
+              }
+
+              this.draw();
+            }
+          }
+
+          // Initialize Particles list
+          function initParticles() {
+            particlesArray = [];
+            // Adjust amount based on screen size
+            const quantity = canvasWidth < 600 ? 25 : 50;
+            for (let i = 0; i < quantity; i++) {
+              const size = Math.random() * 2 + 1.5;
+              const x = Math.random() * (canvasWidth - size * 2) + size;
+              const y = Math.random() * (canvasHeight - size * 2) + size;
+              const dx = (Math.random() - 0.5) * 0.6;
+              const dy = (Math.random() - 0.5) * 0.6;
+              particlesArray.push(new Particle(x, y, dx, dy, size));
+            }
+          }
+
+          // Draw connecting threads/lines
+          function connectParticles() {
+            let opacityValue = 1;
+            const maxDistance = 110;
+            for (let i = 0; i < particlesArray.length; i++) {
+              for (let j = i; j < particlesArray.length; j++) {
+                let dx = particlesArray[i].x - particlesArray[j].x;
+                let dy = particlesArray[i].y - particlesArray[j].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < maxDistance) {
+                  opacityValue = 1 - (distance / maxDistance);
+                  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                  ctx.strokeStyle = isDark ? `rgba(241, 245, 249, ${opacityValue * 0.10})` : `rgba(21, 23, 26, ${opacityValue * 0.15})`;
+                  ctx.lineWidth = 1;
+                  ctx.beginPath();
+                  ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                  ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                  ctx.stroke();
+                }
+              }
+            }
+          }
+
+          // Animation Loop
+          function animate() {
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+            for (let i = 0; i < particlesArray.length; i++) {
+              particlesArray[i].update();
+            }
+            connectParticles();
+            requestAnimationFrame(animate);
+          }
+
+          initParticles();
+          animate();
+        }
+
+
+        // --- HERO LOGO OUTLINE GLOW TRAIL ANIMATION ---
+        const trailCanvas = document.getElementById("trail-canvas");
+        const logoSvg = document.getElementById("hero-logo-svg");
+
+        if (trailCanvas && logoSvg) {
+          const trailCtx = trailCanvas.getContext("2d");
+          const paths = logoSvg.querySelectorAll(".logo-path");
+          const pathsArray = Array.from(paths);
+          let lengths = [];
+
+          function initLengths() {
+            lengths = pathsArray.map(p => {
+              try {
+                return p.getTotalLength();
+              } catch (e) {
+                return 80;
+              }
+            });
+          }
+          initLengths();
+
+          class GlowingPoint {
+            constructor() {
+              this.reset();
+              // Spawn at a random progress ratio on startup so they don't sync up
+              this.progress = Math.random();
+            }
+
+            reset() {
+              this.pathIndex = Math.floor(Math.random() * pathsArray.length);
+              this.path = pathsArray[this.pathIndex];
+              this.totalLength = lengths[this.pathIndex] || 80;
+              this.color = this.path.getAttribute("data-color") === "lime" ? "#8ee84c" : "#b18bfd";
+              // Random traveling speed (progress per frame, about 1.6 to 4 seconds per path transition)
+              this.speed = (0.004 + Math.random() * 0.006);
+              this.progress = 0;
+              this.trail = [];
+            }
+
+            update(now) {
+              const prevProgress = this.progress;
+              this.progress += this.speed;
+              if (this.progress >= 1) {
+                this.reset();
+                return;
+              }
+
+              // Sub-sample between frames to create perfectly smooth, continuous curves along the paths
+              const steps = 3;
+              for (let i = 1; i <= steps; i++) {
+                const t = prevProgress + (this.progress - prevProgress) * (i / steps);
+                const len = t * this.totalLength;
+                try {
+                  const pt = this.path.getPointAtLength(len);
+                  this.trail.push({ x: pt.x, y: pt.y, time: now });
+                } catch (e) {
+                  // Ignore if getPointAtLength fails
+                }
+              }
+
+              // Keep points from last 2 seconds (2000 milliseconds)
+              this.trail = this.trail.filter(p => now - p.time < 2000);
+            }
+
+            draw() {
+              if (this.trail.length === 0) return;
+
+              const now = performance.now();
+              // 1. Draw trail connecting segments with fading color and width
+              const strokeColorBase = this.color === "#8ee84c"
+                ? "142, 232, 76"
+                : "177, 139, 253";
+
+              for (let i = 0; i < this.trail.length - 1; i++) {
+                const p1 = this.trail[i];
+                const p2 = this.trail[i + 1];
+                const age = now - p1.time;
+                const ratio = Math.max(0, 1 - (age / 2000)); // trail fades after 2s
+
+                // Outer neon glow trail (reduced by 25% from 1.4)
+                trailCtx.strokeStyle = `rgba(${strokeColorBase}, ${ratio * 0.25})`;
+                trailCtx.lineWidth = 1.05 * ratio;
+                trailCtx.lineCap = "round";
+                
+                trailCtx.beginPath();
+                trailCtx.moveTo(p1.x, p1.y);
+                trailCtx.lineTo(p2.x, p2.y);
+                trailCtx.stroke();
+
+                // Inner core laser trail (reduced by 25% from 0.35)
+                trailCtx.strokeStyle = `rgba(${strokeColorBase}, ${ratio * 0.8})`;
+                trailCtx.lineWidth = 0.26 * ratio;
+                
+                trailCtx.beginPath();
+                trailCtx.moveTo(p1.x, p1.y);
+                trailCtx.lineTo(p2.x, p2.y);
+                trailCtx.stroke();
+
+                // White-hot center laser trail (reduced by 25% from 0.1)
+                trailCtx.strokeStyle = `rgba(255, 255, 255, ${ratio * 0.9})`;
+                trailCtx.lineWidth = 0.075 * ratio;
+                
+                trailCtx.beginPath();
+                trailCtx.moveTo(p1.x, p1.y);
+                trailCtx.lineTo(p2.x, p2.y);
+                trailCtx.stroke();
+              }
+
+              // 2. Draw glowing light point at the head using a natural Radial Gradient (reduced by 25% from 4.0 to 3.0)
+              const head = this.trail[this.trail.length - 1];
+              
+              trailCtx.save();
+              
+              // Create a beautiful, soft, organic radial light glow (radius 3.0 SVG units)
+              const gradient = trailCtx.createRadialGradient(head.x, head.y, 0.05, head.x, head.y, 3.0);
+              gradient.addColorStop(0, '#ffffff'); // White-hot core spark
+              gradient.addColorStop(0.1, '#ffffff');
+              gradient.addColorStop(0.22, this.color); // Smooth transition to saturated color
+              gradient.addColorStop(0.55, this.color === "#8ee84c" ? "rgba(142, 232, 76, 0.4)" : "rgba(177, 139, 253, 0.4)"); // Diffused atmospheric glow
+              gradient.addColorStop(1.0, 'rgba(0, 0, 0, 0)'); // Seamless edge fade
+              
+              trailCtx.fillStyle = gradient;
+              trailCtx.beginPath();
+              trailCtx.arc(head.x, head.y, 3.0, 0, Math.PI * 2);
+              trailCtx.fill();
+              
+              trailCtx.restore();
+            }
+          }
+
+          // Instantiating 3 glowing points that travel randomly
+          const points = [new GlowingPoint(), new GlowingPoint(), new GlowingPoint()];
+
+          let trailWidth = trailCanvas.offsetWidth;
+          let trailHeight = trailCanvas.offsetHeight;
+
+          function resizeTrailCanvas() {
+            trailWidth = trailCanvas.offsetWidth;
+            trailHeight = trailCanvas.offsetHeight;
+            trailCanvas.width = trailWidth * window.devicePixelRatio;
+            trailCanvas.height = trailHeight * window.devicePixelRatio;
+            initLengths(); 
+          }
+
+          const trailResizeObserver = new ResizeObserver(() => {
+            resizeTrailCanvas();
+          });
+          trailResizeObserver.observe(trailCanvas.parentElement);
+          resizeTrailCanvas();
+
+          function drawLoop() {
+            trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+            
+            trailCtx.save();
+            
+            // Derive parent container size (since canvas is 130% wide/high)
+            const parentWidth = trailWidth / 1.3;
+            const parentHeight = trailHeight / 1.3;
+            
+            // Offset drawing coordinates by 15% to center-align with the SVG logo watermark
+            const offsetX = 0.15 * parentWidth * window.devicePixelRatio;
+            const offsetY = 0.15 * parentHeight * window.devicePixelRatio;
+            trailCtx.translate(offsetX, offsetY);
+            
+            // Scale internal coordinates (0..64 viewBox) to parent width/height
+            const scaleX = (parentWidth * window.devicePixelRatio) / 64;
+            const scaleY = (parentHeight * window.devicePixelRatio) / 64;
+            trailCtx.scale(scaleX, scaleY);
+
+            const now = performance.now();
+            points.forEach(pt => {
+              pt.update(now);
+              pt.draw();
+            });
+
+            trailCtx.restore();
+            requestAnimationFrame(drawLoop);
+          }
+          
+          requestAnimationFrame(drawLoop);
+        }
+
+
+        // --- CAROUSEL IMPLEMENTATION ---
+        const carouselTrack = document.getElementById("testimonial-carousel");
+        const prevBtn = document.getElementById("carousel-prev");
+        const nextBtn = document.getElementById("carousel-next");
+        const originalCards = Array.from(carouselTrack.children);
+        const totalOriginal = originalCards.length;
+
+        // Clone first two cards and append them
+        const cloneFirst1 = originalCards[0].cloneNode(true);
+        const cloneFirst2 = originalCards[1].cloneNode(true);
+        carouselTrack.appendChild(cloneFirst1);
+        carouselTrack.appendChild(cloneFirst2);
+
+        // Clone last two cards and prepend them
+        const cloneLast1 = originalCards[totalOriginal - 1].cloneNode(true);
+        const cloneLast2 = originalCards[totalOriginal - 2].cloneNode(true);
+        carouselTrack.insertBefore(cloneLast2, originalCards[0]);
+        carouselTrack.insertBefore(cloneLast1, originalCards[0]);
+
+        // A is at index 2
+        let currentIndex = 2;
+        let startX = 0;
+        let isDragging = false;
+        let isTransitioning = false;
+
+        function updateCarouselPosition(withTransition = true) {
+          let gap = 24; // var(--spacing-lg)
+          let cardWidth = originalCards[0].offsetWidth;
+          let translateAmt = currentIndex * (cardWidth + gap);
+          
+          if (withTransition) {
+            carouselTrack.style.transition = "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)";
+          } else {
+            carouselTrack.style.transition = "none";
+          }
+          
+          carouselTrack.style.transform = `translateX(-${translateAmt}px)`;
+          
+          // Animate the single central progress indicator dot on transitions
+          const singleDot = document.querySelector("#carousel-dots-container .dot");
+          if (singleDot) {
+            singleDot.style.opacity = "0.5";
+            singleDot.style.transform = "scale(0.8)";
+            setTimeout(() => {
+              singleDot.style.opacity = "1";
+              singleDot.style.transform = "scale(1.2)";
+            }, 80);
+          }
+        }
+
+        function moveToSlide(index) {
+          if (isTransitioning) return;
+          currentIndex = index;
+          isTransitioning = true;
+          updateCarouselPosition(true);
+        }
+
+        prevBtn.addEventListener("click", () => {
+          moveToSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener("click", () => {
+          moveToSlide(currentIndex + 1);
+        });
+
+        carouselTrack.addEventListener("transitionend", () => {
+          isTransitioning = false;
+          
+          // If we reached A_clone (index 5)
+          if (currentIndex >= 2 + totalOriginal) {
+            currentIndex = 2;
+            updateCarouselPosition(false);
+          }
+          // If we reached C_clone (index 1)
+          else if (currentIndex <= 1) {
+            currentIndex = 1 + totalOriginal;
+            updateCarouselPosition(false);
+          }
+        });
+
+        // Carousel Drag Support for Touch and Mouse
+        carouselTrack.addEventListener("mousedown", dragStart);
+        carouselTrack.addEventListener("touchstart", dragStart);
+        carouselTrack.addEventListener("mouseup", dragEnd);
+        carouselTrack.addEventListener("mouseleave", dragEnd);
+        carouselTrack.addEventListener("touchend", dragEnd);
+        carouselTrack.addEventListener("mousemove", dragMove);
+        carouselTrack.addEventListener("touchmove", dragMove);
+
+        function dragStart(e) {
+          if (isTransitioning) return;
+          isDragging = true;
+          startX = getPositionX(e);
+          carouselTrack.style.transition = "none";
+        }
+
+        function dragMove(e) {
+          if (!isDragging) return;
+          const currentX = getPositionX(e);
+          const diff = currentX - startX;
+          
+          let gap = 24;
+          let cardWidth = originalCards[0].offsetWidth;
+          let baseTranslate = currentIndex * (cardWidth + gap);
+          
+          carouselTrack.style.transform = `translateX(${-baseTranslate + diff}px)`;
+        }
+
+        function dragEnd(e) {
+          if (!isDragging) return;
+          isDragging = false;
+          
+          const endX = getPositionX(e);
+          const diff = endX - startX;
+
+          if (diff < -80) {
+            moveToSlide(currentIndex + 1);
+          } else if (diff > 80) {
+            moveToSlide(currentIndex - 1);
+          } else {
+            updateCarouselPosition(true);
+          }
+        }
+
+        function getPositionX(e) {
+          return e.type.includes("mouse") ? e.pageX : (e.touches && e.touches[0] ? e.touches[0].clientX : (e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : 0));
+        }
+
+        // Adjust carousel on screen resize
+        window.addEventListener("resize", () => {
+          updateCarouselPosition(false);
+        });
+
+        // Initialize position
+        updateCarouselPosition(false);
+
+
+
+
+
+        // --- CONTACT FORM SUBMISSION & CLIENT VALIDATION ---
+        const contactForm = document.getElementById("consultation-form");
+        const successScreen = document.getElementById("form-success-screen");
+        const resetSuccessBtn = document.getElementById("success-btn-reset");
+
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          // Quick validator check
+          const nameInput = document.getElementById("form-name");
+          const emailInput = document.getElementById("form-email");
+          const msgInput = document.getElementById("form-message");
+
+          let isValid = true;
+
+          // Name validation
+          if (nameInput.value.trim() === "") {
+            document.getElementById("error-name").style.display = "block";
+            nameInput.classList.add("invalid");
+            isValid = false;
+          } else {
+            document.getElementById("error-name").style.display = "none";
+            nameInput.classList.remove("invalid");
+          }
+
+          // Email validation
+          const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+          if (!emailPattern.test(emailInput.value.trim())) {
+            document.getElementById("error-email").style.display = "block";
+            emailInput.classList.add("invalid");
+            isValid = false;
+          } else {
+            document.getElementById("error-email").style.display = "none";
+            emailInput.classList.remove("invalid");
+          }
+
+          // Message validation
+          if (msgInput.value.trim() === "") {
+            document.getElementById("error-message").style.display = "block";
+            msgInput.classList.add("invalid");
+            isValid = false;
+          } else {
+            document.getElementById("error-message").style.display = "none";
+            msgInput.classList.remove("invalid");
+          }
+
+          if (isValid) {
+            // Success! Transition cleanly
+            successScreen.classList.add("active");
+            contactForm.style.opacity = "0";
+            contactForm.style.pointerEvents = "none";
+          }
+        });
+
+        // Reset Form from Success Screen Action
+        resetSuccessBtn.addEventListener("click", () => {
+          successScreen.classList.remove("active");
+          contactForm.reset();
+          contactForm.style.opacity = "1";
+          contactForm.style.pointerEvents = "auto";
+        });
+
+
+        // --- MI QUIZ LOGIC ---
+        let quizAnswers = { p1: 0, p2: 0, p3: 0 };
+        let currentQuestion = 1;
+
+        window.startQuiz = function() {
+          document.getElementById("quiz-intro").style.display = "none";
+          document.getElementById("quiz-questions").style.display = "block";
+          document.getElementById("q1").style.display = "flex";
+          document.getElementById("q2").style.display = "none";
+          document.getElementById("q3").style.display = "none";
+          document.getElementById("quiz-result").style.display = "none";
+          quizAnswers = { p1: 0, p2: 0, p3: 0 };
+          currentQuestion = 1;
+
+          // Track analytics scroll or adjust parent height if needed
+          const block = document.getElementById("quiz-block");
+          if (block) {
+            block.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+        };
+
+        window.answer = function(questionIndex, pValue) {
+          // Track answer
+          if (pValue && quizAnswers.hasOwnProperty(pValue)) {
+            quizAnswers[pValue]++;
+          }
+
+          // Advance to next question or show results
+          if (questionIndex < 3) {
+            document.getElementById(`q${questionIndex}`).style.display = "none";
+            currentQuestion = questionIndex + 1;
+            document.getElementById(`q${currentQuestion}`).style.display = "flex";
+          } else {
+            // Show results
+            document.getElementById("quiz-questions").style.display = "none";
+            document.getElementById("quiz-result").style.display = "block";
+            
+            // Calculate best recommendation
+            let recommended = "p2"; // Default fallback
+            if (quizAnswers.p1 >= quizAnswers.p2 && quizAnswers.p1 >= quizAnswers.p3) {
+              recommended = "p1";
+            } else if (quizAnswers.p3 >= quizAnswers.p1 && quizAnswers.p3 >= quizAnswers.p2) {
+              recommended = "p3";
+            } else if (quizAnswers.p2 >= quizAnswers.p1 && quizAnswers.p2 >= quizAnswers.p3) {
+              recommended = "p2";
+            }
+
+            // Results details
+            let title = "";
+            let desc = "";
+            let bullets = [];
+            let ctaText = "";
+            let badgeClass = "badge-lime";
+            let bulletClass = "bullet-lime";
+            let btnClass = "btn-lime";
+
+            if (recommended === "p1") {
+              title = "MI Pārvaldība";
+              desc = "Kad organizācijā neviens neatbild par MI riski uzkrājas. Jūsu organizācijā prioritāte šobrīd ir skaidras pārvaldības struktūras, risku kontroles un MI politikas izveide, lai virzītos uz priekšu droši.";
+              bullets = [
+                "MI stratēģijas un atbildības lomu izveide vadības sapulcēs",
+                "Risku un drošības politikas izstrāde datu apstrādei",
+                "Uzņēmuma pielāgotas MI izmantošanas vadlīnijas"
+              ];
+              ctaText = "Pieteikties MI pārvaldības konsultācijai";
+              badgeClass = "badge-lilac";
+              bulletClass = "bullet-lilac";
+              btnClass = "btn-lilac";
+            } else if (recommended === "p3") {
+              title = "Ideju Validēšana";
+              desc = "Jums jau ir aizraujošas un konkrētas idejas par MI pielietojumu biznesā! Tagad ir svarīgi tās pārbaudīt straujā tempā pirms milzīgām investīcijām, lai pārliecinātos par ROI un reālo tehnisko risinājumu.";
+              bullets = [
+                "2–3 nedēļu ātrais prototips & idejas validācijas sprints",
+                "Reālās potenciālās biznesa atdeves (ROI) aprēķini",
+                "Tehnisko šķēršļu un nepieciešamo resursu audits"
+              ];
+              ctaText = "Validēt manu MI ideju";
+              badgeClass = "badge-orange";
+              bulletClass = "bullet-orange";
+              btnClass = "btn-orange";
+            } else {
+              title = "MI Apmācības";
+              desc = "Sagatavojiet savu komandu šodienas izaicinājumiem. Komanda, kas lieto MI haotiski, nesniedz mērķa rezultātu. Īpaši pielāgots apmācību plāns sniegs vislielāko efektivitātes lēcienu.";
+              bullets = [
+                "Komandai un nozarei pielāgotas praktiskās nodarbības",
+                "Maza un liela mēroga prompt engineering tehnikas",
+                "Ikdienas procesu optimizācija ar vispopulārākajiem rīkiem"
+              ];
+              ctaText = "Pieteikt īpašas MI apmācības";
+              badgeClass = "badge-lime";
+              bulletClass = "bullet-lime";
+              btnClass = "btn-lime";
+            }
+
+            // Render result HTML
+            const resultContent = document.getElementById("result-content");
+            resultContent.innerHTML = `
+              <div class="result-badge ${badgeClass}">Tavs Ieteikums</div>
+              <h3 class="result-title">${title}</h3>
+              <p class="result-desc">${desc}</p>
+              <ul class="result-bullets">
+                ${bullets.map(b => `<li class="${bulletClass}">${b}</li>`).join('')}
+              </ul>
+              <a href="#contact" class="result-cta-btn ${btnClass}" onclick="prefillContact('${title}')">${ctaText}</a>
+            `;
+          }
+        };
+
+        window.resetQuiz = function() {
+          document.getElementById("quiz-intro").style.display = "block";
+          document.getElementById("quiz-questions").style.display = "none";
+          document.getElementById("quiz-result").style.display = "none";
+          quizAnswers = { p1: 0, p2: 0, p3: 0 };
+          currentQuestion = 1;
+        };
+
+        window.prefillContact = function(category) {
+          const messageTextarea = document.getElementById("form-message");
+          if (messageTextarea) {
+            messageTextarea.value = `Labdien! Veicu testu vietnē un mans rezultāts ir: "${category}". Vēlos pieteikties bezmaksas konsultācijai, lai uzzinātu vairāk.`;
+          }
+          // Scroll smoothly to contact section
+          const contactSec = document.getElementById("contact");
+          if (contactSec) {
+            contactSec.scrollIntoView({ behavior: "smooth" });
+          }
+        };
+      });
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
